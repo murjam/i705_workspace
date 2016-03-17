@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" xmlns="http://logging.apache.org/log4j/2.0/config" configDebug="true">
+  <Appenders>
+    <Console name="CONSOLE" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+    
+    <RollingFile name="FILE" fileName="logs/hibernate.log" filePattern="logs/hibernate-%i.log">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="100 KB"/>
+      </Policies>
+    </RollingFile>
+    
+     <RollingFile name="USERACTION" fileName="logs/user_actions.log" filePattern="logs/user_actions-%i.log">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="100 KB"/>
+      </Policies>
+    </RollingFile>
+    
+  </Appenders>
+  <Loggers>
+  	<logger name="org.hibernate" level="DEBUG" additivity="false">
+  		<AppenderRef ref="FILE"/>
+  	</logger>
+  	
+  	<logger name="anything" level="DEBUG" additivity="false">
+  		<AppenderRef ref="USERACTION"/>
+  	</logger>
+  	<logger name="ee.itcollege" level="DEBUG" additivity="false">
+  		<AppenderRef ref="CONSOLE"/>
+  		<AppenderRef ref="FILE"/>
+  	</logger>
+    <Root level="INFO">
+      <AppenderRef ref="CONSOLE"/>
+    </Root>
+  </Loggers>
+</log4j:configuration>
