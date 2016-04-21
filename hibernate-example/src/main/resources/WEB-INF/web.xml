@@ -1,0 +1,33 @@
+<web-app
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	
+	<servlet>
+		<servlet-name>whatever</servlet-name>
+		<servlet-class>ee.itcollege.hibernate.servlets.HelloServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>whatever</servlet-name>
+		<url-pattern>/list</url-pattern>
+	</servlet-mapping>
+	
+		
+	<servlet-mapping>
+		<servlet-name>whatever</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<servlet-name>whatever</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>mainpage</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
